@@ -1,11 +1,10 @@
 package pers.mrssip.world.blog.service;
 
-import com.aliyun.oss.model.OSSObjectSummary;
-import com.aliyun.oss.model.ObjectListing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pers.mrssip.world.blog.manager.OssManager;
+import pers.mrssip.world.blog.dao.BlogRepository;
 
 /**
  * @author MrssiP
@@ -13,6 +12,9 @@ import pers.mrssip.world.blog.manager.OssManager;
  */
 @Service
 public class BlogService {
+
+    @Autowired
+    private BlogRepository blogRepository;
 
     @Autowired
     private OssManager ossManager;
@@ -23,7 +25,10 @@ public class BlogService {
     //TODO Blog的CRUD
 
     public void listAll() {
-        ObjectListing objectListing = ossManager.list(bucketName, "");
+
+        blogRepository.findAll().forEach(System.out::println);
+
+//        ObjectListing objectListing = ossManager.list(bucketName, "");
     }
 
 }
