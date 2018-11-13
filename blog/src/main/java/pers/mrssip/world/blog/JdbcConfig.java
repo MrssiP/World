@@ -1,5 +1,6 @@
 package pers.mrssip.world.blog;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,13 +23,20 @@ import javax.sql.DataSource;
 @EnableJdbcRepositories
 public class JdbcConfig extends JdbcConfiguration {
 
+    @Value("${database.mrssia.url}")
+    private String url;
+    @Value("${database.mrssia.username}")
+    private String username;
+    @Value("${database.mrssia.password}")
+    private String password;
+
     @Bean
     DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://39.106.1.159:3306/world");
-        dataSource.setUsername("root");
-        dataSource.setPassword("mrssip10");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
 
         return dataSource;
     }

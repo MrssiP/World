@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: blog
+
+server:
+  port: 8801
+
+database:
+  mrssia:
+    url: jdbc:mysql://39.106.1.159:3306/world?characterEncoding=utf8&useSSL=true
+    username: root
+    password: mrssip10
+
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    accessKeyId: LTAI7iMO8OsH4UC6
+    accessKeySecret: QMWLDVSmizfoW93KAQHQUD92kVUzVf
+    bucketName: mrssip
+
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

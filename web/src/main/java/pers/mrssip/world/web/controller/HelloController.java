@@ -1,30 +1,30 @@
-package pers.mrssip.world.blog.controller;
+package pers.mrssip.world.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import pers.mrssip.world.blog.domain.Entity.Blog;
-import pers.mrssip.world.blog.service.BlogService;
+import pers.mrssip.world.web.client.BlogClient;
 
 import java.util.List;
 
 /**
  * @author MrssiP
- * @date 2018/10/12
+ * @date 2018/11/13
  */
+
 @RestController
-@RequestMapping("/blog")
-public class BlogController {
+@RequestMapping("/web")
+public class HelloController {
 
     @Autowired
-    private BlogService blogService;
+    BlogClient blogClient;
 
     @ResponseBody
-    @GetMapping("/listBlog")
-    public List<Blog> listBlog(){
-        return (List<Blog>) blogService.listAll();
+    @GetMapping(value = "/hello")
+    public List<Object> hello() {
+        return  blogClient.listBlog();
     }
 
 
