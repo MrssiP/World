@@ -28,10 +28,6 @@ public class BlogTest {
 
     }
 
-    @Test
-    public void listAll(){
-        blogService.listAll();
-    }
 
 
 

@@ -7,16 +7,18 @@ import java.sql.Timestamp;
 
 /**
  * @author MrssiP
- * @date 2018/11/8
+ * @date 2018/11/21
  */
 
 @Data
-public class Classification {
+public class Author {
 
     @Id
     Integer id;
 
-    String classification;
+    Integer userId;
+
+    String author;
 
     Integer statusCode;
 

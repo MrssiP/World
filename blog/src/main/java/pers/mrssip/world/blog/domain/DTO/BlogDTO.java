@@ -1,6 +1,8 @@
 package pers.mrssip.world.blog.domain.DTO;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import pers.mrssip.world.blog.domain.Entity.Blog;
 import pers.mrssip.world.blog.domain.Entity.Classification;
 
 import java.sql.Timestamp;
@@ -30,4 +32,16 @@ public class BlogDTO {
     Timestamp createTime;
 
     Timestamp updateTime;
+
+    public BlogDTO(Blog blog, ClassificationDTO classification, AuthorDTO author){
+        this.id = blog.getId();
+        this.title = blog.getTitle();
+        this.classification = classification;
+        this.author = author;
+        this.content = blog.getContent();
+        this.readCount = blog.getReadCount();
+        this.statusCode = blog.getStatusCode();
+        this.createTime = blog.getCreateTime();
+        this.updateTime = blog.getUpdateTime();
+    }
 }

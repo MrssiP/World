@@ -1,7 +1,8 @@
 package pers.mrssip.world.web.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -10,10 +11,23 @@ import java.util.List;
  * @date 2018/11/13
  */
 
+@Component
 @FeignClient("blog")
 public interface BlogClient {
 
-    @GetMapping("/blog/listBlog")
-    List<Object> listBlog();
+    @GetMapping("/blog/list")
+    List<Object> list();
+
+    @GetMapping("/blog/get/{id}")
+    Object get(@PathVariable("id") Integer id);
+
+    @PostMapping("/blog/post")
+    Integer post();
+
+    @PutMapping("/blog/put")
+    boolean put(@RequestBody Object blog);
+
+    @DeleteMapping("/blog/delete/{id}")
+    boolean delete(@PathVariable("id") Integer id);
 }
 

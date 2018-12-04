@@ -1,11 +1,10 @@
 package pers.mrssip.world.web.controller;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pers.mrssip.world.web.client.BlogClient;
+import pers.mrssip.world.web.domain.Result;
 
 import java.util.List;
 
@@ -16,16 +15,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/web")
-public class HelloController {
+public class HelloController extends BaseController {
 
     @Autowired
     BlogClient blogClient;
 
-    @ResponseBody
     @GetMapping(value = "/hello")
-    public List<Object> hello() {
-        return  blogClient.listBlog();
+    public Result hello() {
+        return success(blogClient.list());
     }
-
-
 }
