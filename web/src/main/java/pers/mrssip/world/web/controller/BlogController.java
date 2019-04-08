@@ -40,7 +40,7 @@ public class BlogController extends BaseController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public Result deleta(@PathVariable Integer id){
+    public Result delete(@PathVariable Integer id){
         return success(blogClient.delete(id));
     }
 }

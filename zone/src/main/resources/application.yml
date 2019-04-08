@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: zone
+
+server:
+  port: 8802
+
+database:
+  mrssia:
+    url: jdbc:mysql://39.106.1.159:3306/world?characterEncoding=utf8&useSSL=true
+    username: root
+    password: mrssip10
+
+eureka:
+  client:
+    enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
